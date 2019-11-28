@@ -1,48 +1,35 @@
 import Combinatorics from "js-combinatorics";
 
 
-/*
-export const FEATURES = {
-  Types: ["Number", "Symbol", "Shading", "Color"],
-  Names: {
-    Numbers: ["one", "two", "three"],
-    Symbols: ["diamond", "squiggle", "oval"],
-    Shadings: ["solid", "striped", "open"],
-    Colors: ["red", "green", "purple"]
-  },
-  Chars: {
-    Numbers: ["1", "2", "3"],
-    Symbols: ["d", "s", "o"],
-    Shadings: ["S", "T", "O"],
-    Colors: ["r", "g", "p"]
-  }
-};
-*/
-
-
 enum Nmbr {
-  One = "1",
-  Two = "2",
-  Three = "3",
+  One = "one",
+  Two = "two",
+  Three = "three",
 }
 
 enum Smbl {
-  Diamond = "d",
-  Squiggle = "s",
-  Oval = "o",
+  Diamond = "diamond",
+  Squiggle = "squiggle",
+  Oval = "oval",
 }
 
 enum Shading {
-  Solid = "S",
-  Striped = "T",
-  Open = "O",
+  Solid = "solid",
+  Striped = "striped",
+  Open = "open",
 }
 
 enum Color {
-  Red = "r",
-  Green = "g",
-  Purple = "p",
+  Red = "red",
+  Green = "green",
+  Purple = "purple",
 }
+
+
+export type GameState = {
+  deck: Deck,
+  board: Array<number>,
+};
 
 
 class Card {
@@ -59,21 +46,16 @@ class Card {
   }
 
   public toString(): string {
-    return `${this.number}${this.symbol}${this.shading}${this.color}`;
+    return `${this.number}-${this.symbol}-${this.shading}-${this.color}`;
   }
 
   public toObject(): object {
     return {
-      "Number": this.fn(Nmbr, this.number),
-      "Symbol": this.fn(Smbl, this.symbol),
-      "Shading": this.fn(Shading, this.shading),
-      "Color": this.fn(Color, this.color),
+      "Number": this.number,
+      "Symbol": this.symbol,
+      "Shading": this.shading,
+      "Color": this.color,
     }
-  }
-
-  private fn(Cls: any, val: string): string {
-    let key = Object.keys(Cls)[Object.values(Cls).indexOf(val)];
-    return key.toLowerCase();
   }
 }
 
@@ -85,6 +67,10 @@ export class Deck implements Iterable<Card> {
   constructor() {
     this.initCards();
     this.it = 0;
+  }
+
+  get(key: number): Card {
+    return this.cards[key];
   }
 
   *[Symbol.iterator](): Iterator<Card> {

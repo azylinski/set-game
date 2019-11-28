@@ -15,12 +15,15 @@
     "react-scripts": "3.2.0",
     "typescript": "3.7.2"
   },
+  "typeRoots": [
+    "node_modules/@types",
+    "@types"
+  ],
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-
     "svg-tsc": "./node_modules/typescript/bin/tsc --esModuleInterop -t ES5 --downlevelIteration src/utils/generate-svg-icons.ts",
     "svg-build": "node src/utils/generate-svg-icons.js",
     "svg-cleanup": "rm src/utils/generate-svg-icons.js",
@@ -42,6 +45,7 @@
     ]
   },
   "devDependencies": {
+    "@types/pug": "^2.0.4",
     "pug": "^2.0.4"
   }
 }
