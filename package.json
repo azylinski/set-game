@@ -26,7 +26,7 @@
     "eject": "react-scripts eject",
     "svg-tsc": "./node_modules/typescript/bin/tsc --esModuleInterop -t ES5 --downlevelIteration src/utils/generate-svg-icons.ts",
     "svg-build": "node src/utils/generate-svg-icons.js",
-    "svg-cleanup": "rm src/utils/generate-svg-icons.js",
+    "svg-cleanup": "rm src/utils/generate-svg-icons.js src/core/model.js",
     "generateSvgIcons": "npm run -s svg-tsc && npm run -s svg-build && npm run -s svg-cleanup"
   },
   "eslintConfig": {

@@ -1,8 +1,13 @@
 import React from 'react';
 import { IGameCtx } from 'boardgame.io/core';
 import { Client } from 'boardgame.io/react';
-import { GameState, Deck } from './core/model';
+import Deck from './core/models/Deck';
 
+
+type GameState = {
+  deck: Deck,
+  board: Array<number>,
+};
 
 interface IProps {
   moves: any;
@@ -14,8 +19,8 @@ interface IProps {
 
 
 const Game = ({
-  setup: () => ({
-    deck: new Deck(),
+  setup: (ctx: IGameCtx) => ({
+    deck: new Deck(ctx.random.Shuffle),
     board: [...Array(12).keys()],
   }),
 
@@ -36,19 +41,19 @@ class Board extends React.Component<IProps> {
 
     let tbody = [];
     for (let i = 0; i < 3; i++) {
-      let cells = [];
+      let row = [];
       for (let j = 0; j < 4; j++) {
         const pos = 4 * i + j;
         const card = deck.get(board[pos]);
         const imgUrl = `icons/${card}.svg`;
 
-        cells.push(
+        row.push(
           <td key={pos}>
             <img src={imgUrl} alt="Card" />
           </td>
         );
       }
-      tbody.push(<tr key={i}>{cells}</tr>);
+      tbody.push(<tr key={i}>{row}</tr>);
     }
 
     return (
