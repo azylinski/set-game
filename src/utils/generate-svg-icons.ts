@@ -1,6 +1,6 @@
 import { writeFileSync } from 'fs';
 import { compileFile } from 'pug';
-import Deck from '../core/models/Deck';
+import { Deck } from '../core/models';
 
 
 const renderFn = compileFile("src/utils/svg.pug", {

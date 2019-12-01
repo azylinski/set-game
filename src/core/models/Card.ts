@@ -1,7 +1,7 @@
 import { Nmbr, Smbl, Shading, Color } from './commons';
 
 
-export default class Card {
+export class Card {
   private number: Nmbr;
   private symbol: Smbl;
   private shading: Shading;
