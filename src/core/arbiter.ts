@@ -1,5 +1,5 @@
 import Combinatorics, { IGenerator } from "js-combinatorics";
-import { FEATURES, Card, Deck } from './models';
+import { FEATURES, Card } from './models';
 
 
 export const isSet = (picked: Card[]): boolean => {

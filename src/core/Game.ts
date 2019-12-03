@@ -4,9 +4,7 @@ import { Card, Deck } from './models';
 import { isSet, findSets } from './arbiter';
 
 
-export const ROWS = 3;
-export const COLS = 4;
-const SIZE = ROWS * COLS;
+export const SIZE = 12;
 
 type GameState = {
   deck: Deck,

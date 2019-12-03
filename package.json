@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.7.1",
     "@types/jest": "24.0.23",
     "@types/js-combinatorics": "^0.5.31",
     "@types/node": "12.12.12",
