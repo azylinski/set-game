@@ -41,7 +41,8 @@ const Game = ({
       let cards = [];
       for (let pos of G.board) cards.push(G.deck.get(pos));
 
-      findSets(cards);
+      let sets = findSets(cards);
+      console.log(sets);
 
       return G;
     }

@@ -64,7 +64,8 @@ class Board extends React.Component<IBoardProps, BoardState> {
 const App = Client({
   game: Game,
   numPlayers: 1,
-  board: Board
+  board: Board,
+  // enhancer: applyMiddleware(logger),
 });
 
 export default App;

@@ -3,7 +3,7 @@ import { FEATURES, Card } from './models';
 
 
 export const isSet = (picked: Card[]): boolean => {
-    if (picked.length != 3) return false;
+    if (picked.length !== 3) return false;
 
     for (let feature of FEATURES) {
         const s = new Set();
